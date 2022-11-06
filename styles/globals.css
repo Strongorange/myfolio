@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css");
 
 @layer components {
   .flex-ic {
@@ -9,12 +10,13 @@
 
   .put-center {
     /* put element to center using trnslate and top, left */
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform;
   }
 }
 
 html {
   font-size: 62.5%;
+  position: relative;
 }
 
 * {
