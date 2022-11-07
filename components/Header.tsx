@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { useScrollDirection } from "../api/useScrollDirection";
+import { useScrollDirection } from "../utils/useScrollDirection";
 
 const Header = () => {
   const scrollDirection = useScrollDirection();
 
   return (
     <div
-      className={`flex-ic sticky  z-10 flex w-full  bg-transparent px-[5rem] font-['Pretendard'] transition-all duration-500 ${
+      className={`flex-ic sticky z-10 flex w-full  bg-transparent px-[5rem] font-['Pretendard'] transition-all duration-500 ${
         scrollDirection === "down" ? "top-[-5rem]" : "top-0"
       } `}
     >
