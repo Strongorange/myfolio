@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, forwardRef } from "react";
 import { useInterval } from "../utils/useInterval";
 import ArrowDown from "../assets/arrow-down.svg";
-import { useMoveToDiv } from "../utils/useMoveToDiv";
 
-const Main = () => {
+const Main = forwardRef((props, ref) => {
   const displayText = useMemo(() => {
     return "안녕하세요.";
   }, []);
@@ -59,6 +58,8 @@ const Main = () => {
       </div>
     </section>
   );
-};
+});
+
+Main.displayName = "Main";
 
 export default Main;
