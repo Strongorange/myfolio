@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useMemo, forwardRef } from "react";
 import { useInterval } from "../utils/useInterval";
 import ArrowDown from "../assets/arrow-down.svg";
+import { useAtom } from "jotai";
+import { divRefs } from "../store/myStore";
+import { scrollToDiv } from "../utils/scrollToDiv";
 
 type PropsType = {};
 type RefType = HTMLDivElement;
 
 const Main = forwardRef<RefType, PropsType>((props, ref) => {
+  const [eleRefs] = useAtom(divRefs);
   const displayText = useMemo(() => {
     return "안녕하세요.";
   }, []);
-
   const displayText2 = useMemo(() => {
     return "저는 이찬휘 입니다.";
   }, []);
@@ -55,7 +58,10 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
             {landingText2}
           </h1>
         </div>
-        <div className="absolute bottom-16 left-2/4 -translate-x-1/2 animate-bounce cursor-pointer">
+        <div
+          className="absolute bottom-16 left-2/4 -translate-x-1/2 animate-bounce cursor-pointer"
+          onClick={() => scrollToDiv(eleRefs, 2)}
+        >
           <ArrowDown />
         </div>
       </div>

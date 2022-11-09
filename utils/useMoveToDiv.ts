@@ -1,4 +1,4 @@
-import { useRef, useEffect, use } from "react";
+import { useRef } from "react";
 
 export const useMoveToDiv = () => {
   const element = useRef<HTMLDivElement | null>(null);

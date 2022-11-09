@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect } from "react";
 import { useScrollDirection } from "../utils/useScrollDirection";
 import { useAtom } from "jotai";
 import { divRefs } from "../store/myStore";
+import { scrollToDiv } from "../utils/scrollToDiv";
 
 type PropsType = {};
 type RefType = HTMLDivElement;
@@ -9,15 +10,6 @@ type RefType = HTMLDivElement;
 const Header = forwardRef<RefType, PropsType>((props, ref) => {
   const scrollDirection = useScrollDirection();
   const [eleRefs] = useAtom(divRefs);
-
-  const scrollToDiv = (index: number) => {
-    if (eleRefs.current[index]) {
-      eleRefs?.current[index]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
 
   return (
     <div
@@ -31,19 +23,19 @@ const Header = forwardRef<RefType, PropsType>((props, ref) => {
           로고
         </div>
         <div className="flex-ic flex gap-[1rem] font-['Pretendard'] text-[2rem] text-[#ff5c00]">
-          <div onClick={() => scrollToDiv(1)}>
+          <div onClick={() => scrollToDiv(eleRefs, 1)}>
             <span className="text-[#fe22c9]">01.</span>
             <span> Home</span>
           </div>
-          <div onClick={() => scrollToDiv(2)}>
+          <div onClick={() => scrollToDiv(eleRefs, 2)}>
             <span className="text-[#fe22c9]">02.</span>
             <span> About Me</span>
           </div>
-          <div onClick={() => scrollToDiv(3)}>
+          <div onClick={() => scrollToDiv(eleRefs, 3)}>
             <span className="text-[#fe22c9]">03.</span>
             <span> Skills</span>
           </div>
-          <div onClick={() => scrollToDiv(4)}>
+          <div onClick={() => scrollToDiv(eleRefs, 4)}>
             <span className="text-[#fe22c9]">04.</span>
             <span> Projects</span>
           </div>

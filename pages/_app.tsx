@@ -1,9 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Header from "../components/Header";
-import { useEffect, useRef } from "react";
-import { useMoveToDiv } from "../utils/useMoveToDiv";
+import { useRef } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const outterDiv = useRef<HTMLDivElement>(null);
