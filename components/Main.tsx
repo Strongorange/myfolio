@@ -2,7 +2,10 @@ import React, { useState, useEffect, useMemo, forwardRef } from "react";
 import { useInterval } from "../utils/useInterval";
 import ArrowDown from "../assets/arrow-down.svg";
 
-const Main = forwardRef((props, ref) => {
+type PropsType = {};
+type RefType = HTMLDivElement;
+
+const Main = forwardRef<RefType, PropsType>((props, ref) => {
   const displayText = useMemo(() => {
     return "안녕하세요.";
   }, []);
@@ -42,7 +45,7 @@ const Main = forwardRef((props, ref) => {
   }, 150);
 
   return (
-    <section className="absolute top-0 flex h-screen w-full ">
+    <div className="absolute top-0 flex h-screen w-full " ref={ref}>
       <div className="relative h-full w-full">
         <div className="put-center  flex w-full flex-col items-center font-['Pretendard'] text-[3rem] text-[#ff5c00]">
           <h1 className="animate-typingCursor whitespace-pre-line text-[5rem] text-green-400">
@@ -56,7 +59,7 @@ const Main = forwardRef((props, ref) => {
           <ArrowDown />
         </div>
       </div>
-    </section>
+    </div>
   );
 });
 
