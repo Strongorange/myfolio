@@ -13,7 +13,7 @@ const Header = forwardRef<RefType, PropsType>((props, ref) => {
 
   return (
     <div
-      className={`flex-ic sticky z-10 flex w-full  bg-transparent px-[5rem] font-['Pretendard'] transition-all duration-500 ${
+      className={`flex-ic sticky z-10 flex w-full  bg-transparent px-[5rem] font-['Pretendard'] transition-all duration-500  ${
         scrollDirection === "down" ? "top-[-5rem]" : "top-0"
       } `}
       ref={ref}
@@ -24,19 +24,19 @@ const Header = forwardRef<RefType, PropsType>((props, ref) => {
         </div>
         <div className="flex-ic flex gap-[1rem] font-['Pretendard'] text-[2rem] text-[#ff5c00]">
           <div onClick={() => scrollToDiv(eleRefs, 1)}>
-            <span className="text-[#fe22c9]">01.</span>
+            <span className="text-[#ffffff]">01.</span>
             <span> Home</span>
           </div>
           <div onClick={() => scrollToDiv(eleRefs, 2)}>
-            <span className="text-[#fe22c9]">02.</span>
+            <span className="text-[#ffffff]">02.</span>
             <span> About Me</span>
           </div>
           <div onClick={() => scrollToDiv(eleRefs, 3)}>
-            <span className="text-[#fe22c9]">03.</span>
+            <span className="text-[#ffffff]">03.</span>
             <span> Skills</span>
           </div>
           <div onClick={() => scrollToDiv(eleRefs, 4)}>
-            <span className="text-[#fe22c9]">04.</span>
+            <span className="text-[#ffffff]">04.</span>
             <span> Projects</span>
           </div>
           <div>Resume</div>

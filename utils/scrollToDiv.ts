@@ -1,6 +1,6 @@
-type refs = {
+interface refs {
   current: HTMLDivElement[] | null[];
-};
+}
 
 export const scrollToDiv = (refs: refs, index: number) => {
   if (refs.current[index]) {

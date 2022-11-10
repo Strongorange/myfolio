@@ -3,12 +3,14 @@ import Main from "../components/Main";
 import Section2 from "../components/Section2";
 import { divRefs } from "../store/myStore";
 import { useAtom } from "jotai";
+import SitesNav from "../components/SitesNav";
+import Particle from "../components/Particle";
 
 export default function Home() {
   const [eleRefs] = useAtom(divRefs);
 
   return (
-    <div className="flex h-[300vh] w-full flex-col">
+    <div className="flex w-full flex-col  ">
       <Header
         ref={(el: HTMLDivElement) => {
           eleRefs.current[0] = el;
