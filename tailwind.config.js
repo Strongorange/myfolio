@@ -38,9 +38,9 @@ module.exports = {
       },
       animation: {
         typingCursor: "typingCursor 0.5s ease-in-out 0ms 4",
-        typingCursor2: "typingCursor 0.2s ease-in-out 1000ms 12",
-        typingCursor3: "typingCursor 0.2s ease-in-out 3500ms 2",
-        typingCursor4: "typingCursor 0.2s ease-in-out 4000ms 3",
+        typingCursor2: "typingCursor 0.2s ease-in-out 0ms 8",
+        typingCursor3: "typingCursor 0.2s ease-in-out 0ms 3",
+        typingCursor4: "typingCursor 0.2s ease-in-out 0ms 3",
         fadeOnMain: "fadeOnMain 2s ease-in-out 0ms 1",
         gradient_x: "bgGradient 3s ease infinite",
       },

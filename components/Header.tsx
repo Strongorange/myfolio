@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { useScrollDirection } from "../utils/useScrollDirection";
 import { useAtom } from "jotai";
 import { divRefs } from "../store/myStore";
@@ -10,10 +10,11 @@ type RefType = HTMLDivElement;
 const Header = forwardRef<RefType, PropsType>((props, ref) => {
   const scrollDirection = useScrollDirection();
   const [eleRefs] = useAtom(divRefs);
+  const [marginTop, setMarginTop] = useState(0);
 
   return (
     <div
-      className={`flex-ic sticky z-10 flex w-full  bg-transparent px-[5rem] font-['Pretendard'] transition-all duration-500  ${
+      className={`flex-ic sticky z-10 mb-[-4.5rem]  flex h-[4.5rem] w-full bg-transparent px-[5rem] font-['Pretendard'] transition-all duration-500  ${
         scrollDirection === "down" ? "top-[-5rem]" : "top-0"
       } `}
       ref={ref}

@@ -1,21 +1,10 @@
 import React, { useState, useEffect, useMemo, forwardRef } from "react";
 import { useInterval } from "../utils/useInterval";
-import ArrowDown from "../assets/arrow-down.svg";
+
 import MyPhoto from "../assets/my.jpg";
-import { useAtom } from "jotai";
-import { divRefs } from "../store/myStore";
-import { scrollToDiv } from "../utils/scrollToDiv";
+
 import Image from "next/image";
 import Particle from "./Particle";
-
-{
-  /* <div
-          className="absolute bottom-16 left-2/4 -translate-x-1/2 animate-bounce cursor-pointer"
-          onClick={() => scrollToDiv(eleRefs, 2)}
-        >
-          <ArrowDown />
-        </div> */
-}
 
 type PropsType = {};
 type RefType = HTMLDivElement;
@@ -25,7 +14,7 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
     return "만나서 반갑습니다.";
   }, []);
   const displayText2 = useMemo(() => {
-    return "웹 프론트엔드 개발자 ";
+    return "웹 프론트엔드를 좋아하는 ";
   }, []);
   const displayText3 = useMemo(() => {
     return `${" "}이찬휘`;
@@ -43,11 +32,18 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
   const [textIndex3, setTextIndex3] = useState(0);
   const [textIndex4, setTextIndex4] = useState(0);
 
+  const [showText2, setShowText2] = useState(false);
+  const [showText3, setShowText3] = useState(false);
+  const [showText4, setShowText4] = useState(false);
+
   const [showContents, setShowContents] = useState(false);
   const [showParticle, setShowParticle] = useState(false);
 
+  const [marginTop, setMarginTop] = useState(0);
+
   useInterval(() => {
     if (textIndex >= displayText.length) {
+      setShowText2(true);
       return;
     }
 
@@ -60,6 +56,7 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
 
   useInterval(() => {
     if (textIndex2 >= displayText2.length) {
+      setShowText3(true);
       return;
     }
     if (textIndex >= displayText.length) {
@@ -73,6 +70,7 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
 
   useInterval(() => {
     if (textIndex3 >= displayText3.length) {
+      setShowText4(true);
       return;
     }
     if (textIndex2 >= displayText2.length) {
@@ -97,6 +95,8 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
     }
   }, 150);
 
+  useEffect(() => {}, []);
+
   useEffect(() => {
     if (landingText4.length === displayText4.length) {
       setTimeout(() => {
@@ -107,29 +107,34 @@ const Main = forwardRef<RefType, PropsType>((props, ref) => {
   }, [landingText4, displayText4]);
 
   return (
-    <div
-      className="absolute top-0 flex h-screen w-full px-[15rem] py-[20vh]"
-      ref={ref}
-    >
-      <div className="relative flex h-full w-full flex-col gap-14">
-        <div className="flex  w-full flex-col items-start  font-['Pretendard'] text-[3rem] text-[#ff5c00]">
-          <h1 className="animate-typingCursor whitespace-pre-line text-[2rem]">
-            {landingText}
-          </h1>
+    <div className=" flex h-screen w-full px-[15rem] py-[20vh]" ref={ref}>
+      <div className="relative flex h-full w-full flex-col items-center gap-14">
+        <div className="flex  w-full flex-col items-center  font-['Pretendard'] text-[3rem] text-[#03C4A1]">
+          <div>
+            <h1 className="animate-typingCursor whitespace-pre-line text-[2rem]">
+              {landingText}
+            </h1>
+          </div>
           <div className="flex-ic flex">
-            <h1 className="animate-typingCursor2 whitespace-pre-line text-[5rem]">
-              {landingText2}
-            </h1>
-            <h1 className="animate-typingCursor3 whitespace-pre-line text-[5rem]">
-              &nbsp;{landingText3}
-            </h1>
-            <h1 className="animate-typingCursor4 whitespace-pre-line text-[5rem]">
-              &nbsp;{landingText4}
-            </h1>
+            {showText2 && (
+              <h1 className="animate-typingCursor2 whitespace-pre-line text-[3rem]">
+                {landingText2}&nbsp;
+              </h1>
+            )}
+            {showText3 && (
+              <h1 className="animate-typingCursor3 whitespace-pre-line text-[4rem] font-bold italic text-[#ff5c00] underline">
+                {landingText3}
+              </h1>
+            )}
+            {showText4 && (
+              <h1 className="animate-typingCursor4 whitespace-pre-line text-[3rem]">
+                &nbsp;{landingText4}
+              </h1>
+            )}
           </div>
         </div>
         {showContents && (
-          <div className="flex animate-fadeOnMain justify-between text-[5rem]">
+          <div className="flex w-full animate-fadeOnMain flex-col items-center text-[3rem]">
             <div className="">
               <h1>다양한 경험을 추구하는</h1>
               <h2>소개2소개2</h2>

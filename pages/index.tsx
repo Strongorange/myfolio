@@ -21,7 +21,7 @@ export default function Home() {
           eleRefs.current[1] = el;
         }}
       />
-      <div className="h-screen" />
+
       <Section2
         ref={(el: HTMLDivElement) => {
           eleRefs.current[2] = el;

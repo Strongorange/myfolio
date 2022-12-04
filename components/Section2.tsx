@@ -1,4 +1,6 @@
-import React, { forwardRef } from "react";
+import { useAtom } from "jotai";
+import React, { forwardRef, useEffect, useState } from "react";
+import { divRefs } from "../store/myStore";
 
 type PropsType = {};
 type RefType = HTMLDivElement;
